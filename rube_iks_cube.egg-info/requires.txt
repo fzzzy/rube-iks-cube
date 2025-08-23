@@ -1,0 +1,4 @@
+mcp>=1.13.1
+pydantic-ai>=0.7.4
+rich>=13.0.0
+httpx>=0.25.0

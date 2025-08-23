@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: rube-iks-cube
+Version: 0.1.0
+Summary: MCP client for rube.app
+Requires-Python: >=3.10
+Requires-Dist: mcp>=1.13.1
+Requires-Dist: pydantic-ai>=0.7.4
+Requires-Dist: rich>=13.0.0
+Requires-Dist: httpx>=0.25.0
