@@ -3,7 +3,11 @@ Name: rube-iks-cube
 Version: 0.1.0
 Summary: MCP client for rube.app
 Requires-Python: >=3.10
+License-File: LICENSE
 Requires-Dist: mcp>=1.13.1
 Requires-Dist: pydantic-ai>=0.7.4
 Requires-Dist: rich>=13.0.0
 Requires-Dist: httpx>=0.25.0
+Requires-Dist: fastapi>=0.100.0
+Requires-Dist: uvicorn>=0.20.0
+Dynamic: license-file

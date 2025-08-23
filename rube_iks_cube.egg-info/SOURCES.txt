@@ -1,3 +1,5 @@
+LICENSE
+README.md
 main.py
 mcp_client.py
 pyproject.toml
