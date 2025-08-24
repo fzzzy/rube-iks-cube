@@ -4,6 +4,8 @@
 
 ### 1. Environment Setup
 
+Make sure uv is installed.
+
 First, copy the environment template and configure your API keys:
 
 ```bash
