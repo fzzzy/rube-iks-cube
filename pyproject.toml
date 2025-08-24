@@ -9,6 +9,8 @@ description = "MCP client for rube.app"
 dependencies = [
     "pydantic-ai>=0.7.4",
     "rich>=13.0.0",
+    "composio-core[all]",
+    "python-dotenv",
 ]
 requires-python = ">=3.10"
 
