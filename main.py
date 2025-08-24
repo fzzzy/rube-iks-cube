@@ -77,101 +77,19 @@ async def test_composio_integration(console: Console) -> None:
     
     console.print("[green]✓ Composio API Key loaded successfully[/green]")
     
-    try:
-        # Initialize the Composio client
-        console.print("[yellow]Initializing Composio client...[/yellow]")
-        client = Composio(api_key=api_key)
-        console.print("[green]✓ Composio client initialized[/green]")
-        
-        # Test basic connection
-        console.print("\n[yellow]Testing Composio connection...[/yellow]")
-        
-        # Verify client is working by checking if it has the expected attributes
-        has_basic_functionality = hasattr(client, 'actions') or hasattr(client, 'integrations')
-        
-        console.print("[green]✓ Composio client initialized successfully[/green]")
-        
-        # Get connected integrations info
-        console.print("\n[yellow]Checking connected integrations...[/yellow]")
-        
-        try:
-            # Run composio connections command to get integration details
-            result = subprocess.run(['composio', 'connections'], 
-                                  capture_output=True, text=True, timeout=10)
-            
-            if result.returncode == 0:
-                connected_output = result.stdout.strip()
-                if connected_output:
-                    success_panel = Panel(
-                        f"[bold green]🎉 Composio SDK 'Hello World' Success![/bold green]\n\n"
-                        f"✓ API key loaded and validated\n"
-                        f"✓ Client functionality available: {has_basic_functionality}\n"
-                        f"✓ Connected integrations found\n\n"
-                        f"[bold blue]Connected Services:[/bold blue]\n"
-                        f"[code]{connected_output}[/code]\n\n"
-                        f"[dim]Use 'composio actions <service>' to see available tools for each service.[/dim]",
-                        title="[bold green]Hello World - Composio Connected! 🚀[/bold green]",
-                        border_style="green",
-                        expand=True
-                    )
-                    console.print(success_panel)
-                else:
-                    # No integrations connected
-                    info_panel = Panel(
-                        f"[bold blue]🎉 Composio SDK Connection Successful![/bold blue]\n\n"
-                        f"✓ API key loaded and validated\n"
-                        f"✓ Client functionality available: {has_basic_functionality}\n"
-                        f"❌ No services connected yet\n\n"
-                        f"[bold yellow]To connect a service:[/bold yellow]\n"
-                        f"[code]composio add github[/code]\n"
-                        f"[code]composio add slack[/code]\n"
-                        f"[code]composio add notion[/code]\n\n"
-                        f"[dim]Run 'composio apps' to see all available services.[/dim]",
-                        title="[bold blue]Hello World - Ready to Connect Services! �[/bold blue]",
-                        border_style="blue",
-                        expand=True
-                    )
-                    console.print(info_panel)
-            else:
-                # Command failed, show basic success
-                basic_panel = Panel(
-                    f"[bold green]🎉 Composio SDK 'Hello World' Success![/bold green]\n\n"
-                    f"✓ API key loaded and validated\n"
-                    f"✓ Client functionality available: {has_basic_functionality}\n\n"
-                    f"[dim]Could not check connected services (composio CLI may not be available)[/dim]\n"
-                    f"[dim]Error: {result.stderr.strip() if result.stderr else 'Unknown error'}[/dim]",
-                    title="[bold green]Hello World - Composio Connected! 🚀[/bold green]",
-                    border_style="green",
-                    expand=True
-                )
-                console.print(basic_panel)
-                
-        except (subprocess.TimeoutExpired, subprocess.CalledProcessError, FileNotFoundError) as e:
-            # Fallback if composio CLI is not available
-            basic_panel = Panel(
-                f"[bold green]🎉 Composio SDK 'Hello World' Success![/bold green]\n\n"
-                f"✓ API key loaded and validated\n"
-                f"✓ Client functionality available: {has_basic_functionality}\n\n"
-                f"[dim]Composio CLI not available for checking connections[/dim]\n"
-                f"[dim]Error: {str(e)}[/dim]",
-                title="[bold green]Hello World - Composio Connected! 🚀[/bold green]",
-                border_style="green",
-                expand=True
-            )
-            console.print(basic_panel)
-        
-    except Exception as e:
-        error_panel = Panel(
-            f"[bold red]Composio Error:[/bold red] {str(e)}\n\n"
-            "[dim]This might indicate:[/dim]\n"
-            "• Invalid API key\n"
-            "• Network connectivity issues\n"
-            "• Service unavailable",
-            title="[bold red]Composio Integration Error[/bold red]",
-            border_style="red",
-            expand=True
-        )
-        console.print(error_panel)
+    # Initialize the Composio client
+    console.print("[yellow]Initializing Composio client...[/yellow]")
+    client = Composio(api_key=api_key)
+    console.print("[green]✓ Composio client initialized[/green]")
+    
+    # Test basic connection
+    console.print("\n[yellow]Testing Composio connection...[/yellow]")
+    
+    # Verify client is working by checking if it has the expected attributes
+    has_basic_functionality = hasattr(client, 'actions') or hasattr(client, 'integrations')
+    
+    console.print("[green]✓ Composio client initialized successfully[/green]")
+    console.print(f"[green]✓ Basic functionality check: {has_basic_functionality}[/green]")
 
 
 async def main():
