@@ -51,12 +51,16 @@ def introspect_composio_client(client, console: Console) -> None:
                 sig = inspect.signature(method_obj)
                 if sig.parameters:
                     console.print("  [cyan]Parameters:[/cyan]")
-                    for param_name, param in sig.parameters.items():
+                    for param_name in sig.parameters:
+                        param_obj = sig.parameters[param_name]
                         param_info = f"    {param_name}"
-                        if param.annotation != inspect.Parameter.empty:
-                            param_info += f": {param.annotation}"
-                        if param.default != inspect.Parameter.empty:
-                            param_info += f" = {param.default}"
+                        # Use getattr to safely access parameter attributes
+                        annotation = getattr(param_obj, 'annotation', inspect.Parameter.empty)
+                        if annotation != inspect.Parameter.empty:
+                            param_info += f": {annotation}"
+                        default = getattr(param_obj, 'default', inspect.Parameter.empty)
+                        if default != inspect.Parameter.empty:
+                            param_info += f" = {default}"
                         console.print(param_info)
             except (ValueError, TypeError):
                 pass
