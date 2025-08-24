@@ -7,15 +7,11 @@ name = "rube-iks-cube"
 version = "0.1.0"
 description = "MCP client for rube.app"
 dependencies = [
-    "mcp>=1.13.1",
     "pydantic-ai>=0.7.4",
     "rich>=13.0.0",
-    "httpx>=0.25.0",
-    "fastapi>=0.100.0",
-    "uvicorn>=0.20.0",
 ]
 requires-python = ">=3.10"
 
 [tool.setuptools]
-py-modules = ["main", "mcp_client", "oauth_client"]
+py-modules = ["main"]
 
