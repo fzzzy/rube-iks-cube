@@ -1,11 +1,12 @@
 
 
 import asyncio
-from composio.client import Composio
+from composio import Composio
 from dotenv import load_dotenv
 import os
 from rich.console import Console
-# from introspection import introspect_composio_client
+from introspection import introspect_composio_client
+from hackernews_integration import test_hackernews_integration, get_hackernews_frontpage
 # from openai_integration import query_openai_for_city
 
 
@@ -51,14 +52,23 @@ async def test_composio_integration(console: Console) -> None:
 
 
 async def main():
-    """Main function that tests Composio SDK integration - Hello World example."""
+    """Main function to test Composio integrations."""
     console = Console()
     
-    # Query OpenAI about Canadian cities (available in openai_integration module)
-    # await query_openai_for_city(console)
+    console.print("[bold green]Testing Composio SDK Integration...[/bold green]")
     
-    # Test Composio SDK
-    await test_composio_integration(console)
+    # Skip general app listing and API introspection for now
+    # await test_composio_integration(console)
+    
+    # console.print("\n" + "="*50 + "\n")
+    
+    # Test HackerNews integration specifically
+    # await test_hackernews_integration(console)
+    
+    # console.print("\n" + "="*50 + "\n")
+    
+    # Try to get HackerNews front page
+    await get_hackernews_frontpage(console)
 
 
 if __name__ == "__main__":
