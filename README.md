@@ -26,3 +26,9 @@ nano .env  # or use your preferred editor
 ```
 
 Update the `COMPOSIO_API_KEY` value with your actual key.
+
+### 4. Run
+
+```bash
+./run.sh
+```
