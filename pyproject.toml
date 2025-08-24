@@ -7,7 +7,6 @@ name = "rube-iks-cube"
 version = "0.1.0"
 description = "MCP client for rube.app"
 dependencies = [
-    "pydantic-ai>=0.7.4",
     "rich>=13.0.0",
     "composio>=0.8.8",
     "python-dotenv>=1.1.1",
