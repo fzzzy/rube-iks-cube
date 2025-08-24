@@ -16,7 +16,7 @@ cp .env.template .env
 
 1. Visit [https://app.composio.dev/](https://app.composio.dev/)
 2. Sign up or log in to your account
-3. Go to **[Your project] > Settings > API keys *8
+3. Go to **[Your project] > Settings > API keys **
 4. Copy your API key
 
 ### 3. Configure Environment Variables
